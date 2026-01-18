@@ -1,0 +1,6 @@
+[
+  { "name": "SmartWatch", "path": "/SmartWatch" },
+  { "name": "Laptop", "path": "/Laptop" },
+  { "name": "Monitor", "path": "/Monitor" }
+
+]

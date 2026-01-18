@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "slug": "tecno-spark-slim",
+    "title": "Tecno SPARK Slim",
+    "category": "smartphone",
+    "price": 10000,
+    "originalPrice": 13500,
+    "currency": "BDT",
+    "discount": 26,
+    "rating": 4.3,
+    "reviewsCount": 22,
+    "stock": true,
+    "shortDescription": "Affordable smartphone with slim design and reliable performance.",
+    "longDescription": "Tecno SPARK Slim offers a sleek design with dependable performance, making it a great choice for budget-conscious users.",
+    "features": [
+      "Slim & Lightweight Design",
+      "Long-lasting Battery",
+      "Smooth Daily Performance"
+    ],
+    "specifications": {
+      "Display": "6.6 inch HD+",
+      "Processor": "Octa-core",
+      "Battery": "5000mAh"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_0038aa95.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_0038aa95.webp"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "tecno-spark-40",
+    "title": "Tecno SPARK 40",
+    "category": "smartphone",
+    "price": 12500,
+    "originalPrice": 13567,
+    "currency": "BDT",
+    "discount": 8,
+    "rating": 4.4,
+    "reviewsCount": 18,
+    "stock": true,
+    "shortDescription": "Stylish Tecno phone offering balanced features at great value.",
+    "longDescription": "Tecno SPARK 40 delivers a balanced smartphone experience with modern design and efficient performance.",
+    "features": [
+      "Modern Design",
+      "HD+ Display",
+      "Reliable Camera"
+    ],
+    "specifications": {
+      "Display": "6.6 inch HD+",
+      "Camera": "50MP",
+      "Battery": "5000mAh"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_9f412dbd.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_9f412dbd.webp"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "benco-v91-plus",
+    "title": "Benco V91 Plus",
+    "category": "smartphone",
+    "price": 12000,
+    "originalPrice": 13567,
+    "currency": "BDT",
+    "discount": 12,
+    "rating": 4.2,
+    "reviewsCount": 12,
+    "stock": true,
+    "shortDescription": "Budget-friendly smartphone with enhanced battery life.",
+    "longDescription": "Benco V91 Plus is designed for users who need long battery life and smooth usability at an affordable price.",
+    "features": [
+      "Massive Battery",
+      "Smooth UI",
+      "Budget Friendly"
+    ],
+    "specifications": {
+      "Battery": "6000mAh",
+      "Display": "6.5 inch",
+      "OS": "Android"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_8e4550a9.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_8e4550a9.webp"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "walton-21-45-inch-monitor",
+    "title": "Walton WD215I10 21.45\" 100Hz FHD IPS Monitor",
+    "category": "monitor",
+    "price": 9900,
+    "originalPrice": 10950,
+    "currency": "BDT",
+    "discount": 10,
+    "rating": 4.6,
+    "reviewsCount": 15,
+    "stock": true,
+    "shortDescription": "Full HD IPS monitor with smooth 100Hz refresh rate.",
+    "longDescription": "Walton WD215I10 monitor delivers crisp visuals with an IPS panel and smooth 100Hz refresh rate for work and entertainment.",
+    "features": [
+      "21.45-inch IPS Display",
+      "100Hz Refresh Rate",
+      "Full HD Resolution"
+    ],
+    "specifications": {
+      "Resolution": "1920x1080",
+      "Panel": "IPS",
+      "Refresh Rate": "100Hz"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_893cf0b4.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_893cf0b4.webp"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "msi-pro-mp225-monitor",
+    "title": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor",
+    "category": "monitor",
+    "price": 12400,
+    "originalPrice": 13560,
+    "currency": "BDT",
+    "discount": 8,
+    "rating": 4.7,
+    "reviewsCount": 20,
+    "stock": true,
+    "shortDescription": "Professional IPS monitor with smooth visuals.",
+    "longDescription": "MSI PRO MP225 is built for professionals, offering accurate colors and a smooth 100Hz experience.",
+    "features": [
+      "IPS Panel",
+      "100Hz Refresh Rate",
+      "Eye Care Technology"
+    ],
+    "specifications": {
+      "Resolution": "1920x1080",
+      "Panel": "IPS",
+      "Refresh Rate": "100Hz"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_02d8c326.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_02d8c326.webp"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "lenovo-ideapad-slim-3-14",
+    "title": "Lenovo IdeaPad Slim 3 Ryzen 3 14\" FHD Laptop",
+    "category": "laptop",
+    "price": 52000,
+    "originalPrice": 55050,
+    "currency": "BDT",
+    "discount": 6,
+    "rating": 4.5,
+    "reviewsCount": 25,
+    "stock": true,
+    "shortDescription": "Compact laptop for students and professionals.",
+    "longDescription": "Lenovo IdeaPad Slim 3 offers Ryzen 3 performance in a compact 14-inch design.",
+    "features": [
+      "Ryzen 3 Processor",
+      "14-inch FHD Display",
+      "Lightweight Design"
+    ],
+    "specifications": {
+      "Processor": "Ryzen 3 7320U",
+      "RAM": "8GB",
+      "Storage": "512GB SSD"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_12385a31.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_12385a31.webp"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "black-shark-gt3-neo",
+    "title": "Black Shark GT3 Neo Smart Watch",
+    "category": "smart-watch",
+    "price": 2390,
+    "originalPrice": 2629,
+    "currency": "BDT",
+    "discount": 9,
+    "rating": 4.4,
+    "reviewsCount": 30,
+    "stock": true,
+    "shortDescription": "Smart watch with fitness and health tracking.",
+    "longDescription": "Black Shark GT3 Neo offers essential fitness tracking features with a stylish design.",
+    "features": [
+      "Heart Rate Monitor",
+      "Fitness Tracking",
+      "Long Battery Life"
+    ],
+    "specifications": {
+      "Display": "AMOLED",
+      "Battery": "7 Days",
+      "Water Resistance": "Yes"
+    },
+    "thumbnail": "https://img.garagepotti.xyz/upload/0000126/cropped-image_44b98536.webp",
+    "gallery": [
+      "https://img.garagepotti.xyz/upload/0000126/cropped-image_44b98536.webp"
+    ]
+  }
+]
