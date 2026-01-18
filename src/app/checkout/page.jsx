@@ -6,9 +6,9 @@ const CheckoutPage = () => {
       <h1 className="text-2xl font-bold mb-8">Checkout</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* LEFT SIDE */}
+      
         <div className="lg:col-span-2 space-y-6">
-          {/* Billing Details */}
+    
           <div className="bg-base-100 p-6 rounded-xl shadow">
             <h2 className="text-lg font-semibold mb-4">Billing Information</h2>
 
@@ -41,8 +41,7 @@ const CheckoutPage = () => {
               rows={3}
             ></textarea>
           </div>
-
-          {/* Payment Method */}
+          
           <div className="bg-base-100 p-6 rounded-xl shadow">
             <h2 className="text-lg font-semibold mb-4">Payment Method</h2>
 
@@ -78,11 +77,11 @@ const CheckoutPage = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
+       
         <div className="bg-base-100 p-6 rounded-xl shadow h-fit">
           <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
 
-          {/* Product */}
+     
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
@@ -115,7 +114,6 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          {/* Price Summary */}
           <div className="border-t mt-4 pt-4 space-y-2 text-sm">
             <div className="flex justify-between">
               <span>Subtotal</span>
