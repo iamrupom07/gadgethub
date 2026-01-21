@@ -9,6 +9,17 @@ const nextConfig = {
         pathname: "/upload/0000126/**",
         search: "",
       },
+      {
+        protocol: "http",
+        hostname: "img.garagepotti.xyz",
+        port: "",
+        pathname: "/upload/0000126/**",
+        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "ecommerce-saas-server-wine.vercel.app",
+      },
     ],
   },
 };

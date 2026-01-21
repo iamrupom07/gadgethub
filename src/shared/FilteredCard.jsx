@@ -1,40 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./cartSlice";
-// Ensure this path matches your project structure
 
-const Card = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const FilteredCard = ({ products = [] }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://ecommerce-saas-server-wine.vercel.app/api/v1/product/website",
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "store-id": "0000126",
-            },
-          },
-        );
-        const data = await res.json();
-        setProducts(data?.data?.data || []);
-      } catch (err) {
-        console.error("Failed to load products:", err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getProducts();
-  }, []);
-
-  // Handler to bridge API data to Redux state
+  // Handler to bridge API product data to your Redux state
   const handleAddToCart = (product) => {
     dispatch(
       addToCart({
@@ -46,43 +20,42 @@ const Card = () => {
     );
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-[400px]">
-        <span className="loading loading-spinner loading-lg text-primary"></span>
-      </div>
-    );
-  }
-
   if (!products || products.length === 0) {
     return (
-      <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300">
-        <p className="text-gray-500">No products found in this category.</p>
+      <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300 mx-4">
+        <p className="text-gray-500 font-medium">
+          No products found matching these filters.
+        </p>
+        <p className="text-sm text-gray-400 mt-1">
+          Try adjusting your price range or categories.
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
       {products.map((product) => (
         <div
           key={product._id}
           className="group card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
         >
+          {/* Image Section */}
           <figure className="relative h-64 w-full bg-gray-50">
             <Image
               src={product.imageURLs?.[0] || "/placeholder-image.png"}
               alt={product.name}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
             />
           </figure>
 
+          {/* Body Section */}
           <div className="card-body p-4 flex flex-col justify-between">
             <div>
               <Link href={`/product/${product._id}`}>
-                <h2 className="card-title text-sm font-medium hover:text-blue-600 transition-colors line-clamp-2 h-10">
+                <h2 className="card-title text-sm font-semibold hover:text-blue-600 transition-colors line-clamp-2 h-10 leading-tight">
                   {product.name}
                 </h2>
               </Link>
@@ -92,17 +65,18 @@ const Card = () => {
                   ৳{product.salePrice || product.productPrice}
                 </span>
                 {product.productPrice > product.salePrice && (
-                  <span className="text-xs text-gray-400 line-through">
+                  <span className="text-xs text-gray-400 line-through font-medium">
                     ৳{product.productPrice}
                   </span>
                 )}
               </div>
             </div>
 
+            {/* Actions Section */}
             <div className="card-actions mt-4 flex flex-col gap-2">
               <Link
                 href={`/checkout?product=${product._id}`}
-                className="btn btn-primary btn-sm w-full text-white no-animation"
+                className="btn btn-primary btn-sm w-full text-white no-animation shadow-sm"
               >
                 Buy Now
               </Link>
@@ -120,4 +94,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default FilteredCard;
