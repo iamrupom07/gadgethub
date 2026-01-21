@@ -29,7 +29,6 @@ const CheckoutPage = () => {
     <div className="max-w-7xl mx-auto px-4 py-10">
       <h1 className="text-2xl font-bold mb-8">Checkout</h1>
 
-<<<<<<< HEAD
       <form
         onSubmit={handleSubmit(onPlaceOrder)}
         className="grid grid-cols-1 lg:grid-cols-3 gap-8"
@@ -38,13 +37,6 @@ const CheckoutPage = () => {
         <div className="lg:col-span-2 space-y-6">
           {/* Billing Details */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-=======
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      
-        <div className="lg:col-span-2 space-y-6">
-    
-          <div className="bg-base-100 p-6 rounded-xl shadow">
->>>>>>> b21abd357d015a5eefaa82359a8005f0ec285f9d
             <h2 className="text-lg font-semibold mb-4">Billing Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -92,13 +84,9 @@ const CheckoutPage = () => {
               rows={3}
             ></textarea>
           </div>
-<<<<<<< HEAD
 
+          {/* Payment Method */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-=======
-          
-          <div className="bg-base-100 p-6 rounded-xl shadow">
->>>>>>> b21abd357d015a5eefaa82359a8005f0ec285f9d
             <h2 className="text-lg font-semibold mb-4">Payment Method</h2>
             <div className="space-y-3">
               {["Cash on Delivery", "bKash", "Nagad"].map((method) => (
@@ -121,7 +109,7 @@ const CheckoutPage = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
+        {/* Order Summary */}
         <div className="bg-white p-6 rounded-xl shadow-md border border-blue-50 h-fit sticky top-24">
           <h2 className="text-lg font-semibold mb-4 text-blue-900">
             Order Summary
@@ -149,36 +137,12 @@ const CheckoutPage = () => {
                 <span className="text-sm font-bold text-gray-700">
                   ৳{item.price * item.quantity}
                 </span>
-=======
-       
-        <div className="bg-base-100 p-6 rounded-xl shadow h-fit">
-          <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
-
-     
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="https://img.garagepotti.xyz/upload/0000126/cropped-image_893cf0b4.webp"
-                alt="product"
-                className="w-16 h-16 rounded object-cover"
-              />
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold line-clamp-2">
-                  Walton WD215I10 Monitor
-                </h3>
-                <p className="text-xs text-gray-500">Qty: 1</p>
->>>>>>> b21abd357d015a5eefaa82359a8005f0ec285f9d
               </div>
             ))}
           </div>
 
-<<<<<<< HEAD
           <div className="border-t mt-4 pt-4 space-y-3 text-sm">
             <div className="flex justify-between text-gray-600">
-=======
-          <div className="border-t mt-4 pt-4 space-y-2 text-sm">
-            <div className="flex justify-between">
->>>>>>> b21abd357d015a5eefaa82359a8005f0ec285f9d
               <span>Subtotal</span>
               <span>৳{totalAmount}</span>
             </div>
