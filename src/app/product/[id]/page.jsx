@@ -3,6 +3,7 @@ import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import ProductTabs from "./ProductTabs";
 import RelatedProducts from "./RelatedProducts";
+import ProductSectionContainer from "./ProductSectionContainer";
 
 async function getProduct(id) {
   const res = await fetch(
@@ -46,10 +47,7 @@ export default async function ProductPage(props) {
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-10 space-y-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-base-100 p-6 rounded-xl shadow">
-        <ProductGallery images={product.imageURLs || []} />
-        <ProductInfo product={product} />
-      </div>
+      <ProductSectionContainer product={product} />
 
       <ProductTabs product={product} />
 

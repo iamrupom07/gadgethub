@@ -8,7 +8,6 @@ import { addToCart } from "./cartSlice";
 const FilteredCard = ({ products = [] }) => {
   const dispatch = useDispatch();
 
-  // Handler to bridge API product data to your Redux state
   const handleAddToCart = (product) => {
     dispatch(
       addToCart({

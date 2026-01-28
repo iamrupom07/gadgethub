@@ -1,6 +1,7 @@
 import Category from "@/Components/Category";
 import HeroSection from "@/Components/HeroSection";
 import Card from "@/shared/Card";
+import NewArrivals from "@/shared/NewArrivals";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,9 +14,9 @@ export default function Home() {
         <div className="py-6">
           <Category></Category>
         </div>
+
         <div>
-          <p className="my-6 text-2xl font-semibold">New Arrivals</p>
-          <Card />
+          <NewArrivals />
         </div>
         <div>
           <p className="my-6 text-2xl font-semibold">Just For You</p>

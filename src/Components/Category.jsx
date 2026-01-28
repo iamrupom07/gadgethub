@@ -78,7 +78,6 @@ const Category = () => {
               ))}
             </div>
 
-            {/* Navigation arrows */}
             <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
               <a
                 href={`#slide${index === 0 ? slides.length : index}`}

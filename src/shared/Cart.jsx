@@ -112,7 +112,6 @@ const Cart = () => {
             )}
           </div>
 
-          {/* Footer / Summary */}
           <div className="border-t pt-4 space-y-3">
             <div className="flex justify-between text-sm">
               <span>Subtotal</span>

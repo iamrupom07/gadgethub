@@ -1,45 +1,33 @@
 "use client";
-import { useState, useMemo } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default function ProductGallery({ images = [] }) {
-  const validImages = useMemo(
-    () => images.filter((img) => typeof img === "string" && img.trim() !== ""),
-    [images],
-  );
+export default function ProductGallery({ images, activeImage }) {
+  const [mainImg, setMainImg] = useState(activeImage);
 
-  const fallback = "/placeholder.png";
-
-  const [active, setActive] = useState(validImages[0] || fallback);
+  useEffect(() => {
+    setMainImg(activeImage);
+  }, [activeImage]);
 
   return (
-    <div>
-      <Image
-        src={active}
-        width={450}
-        height={450}
-        alt="product"
-        className="rounded-xl mx-auto"
-        priority
-      />
-
-      {validImages.length > 1 && (
-        <div className="flex justify-center gap-3 mt-4">
-          {validImages.map((img) => (
-            <button key={img} onClick={() => setActive(img)}>
-              <Image
-                src={img}
-                width={70}
-                height={70}
-                alt="thumbnail"
-                className={`rounded border ${
-                  active === img ? "border-primary" : "border-base-300"
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-      )}
+    <div className="space-y-4">
+      <div className="aspect-square w-full relative bg-gray-50 rounded-lg overflow-hidden ">
+        <img
+          src={mainImg}
+          alt="Product"
+          className="w-full h-full object-contain p-4 transition-all duration-300"
+        />
+      </div>
+      <div className="flex gap-2 overflow-x-auto">
+        {images.map((img, idx) => (
+          <button
+            key={idx}
+            onClick={() => setMainImg(img)}
+            className={`w-20 h-20 border rounded ${mainImg === img ? "border-primary" : "border-gray-200"}`}
+          >
+            <img src={img} className="w-full h-full object-cover" />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

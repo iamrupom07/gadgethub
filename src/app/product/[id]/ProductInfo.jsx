@@ -2,22 +2,40 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
 import { toast } from "react-hot-toast";
 import { addToCart } from "@/shared/cartSlice";
 
-export default function ProductInfo({ product }) {
+export default function ProductInfo({
+  product,
+  selectedVariant,
+  setSelectedVariant,
+}) {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
+  const currentPrice = selectedVariant?.salePrice || product.salePrice;
+  const originalPrice = selectedVariant?.productPrice || product.productPrice;
+  const isOutOfStock = selectedVariant
+    ? selectedVariant.quantity < 1
+    : !product.stock;
+
   const handleAddToCart = () => {
+    if (isOutOfStock) {
+      toast.error("This variant is out of stock!");
+      return;
+    }
+
     for (let i = 0; i < qty; i++) {
       dispatch(
         addToCart({
           id: product._id,
-          name: product.name,
-          price: product.salePrice || product.productPrice,
-          image: product.imageURLs?.[0] || "/placeholder-image.png",
+          variantId: selectedVariant?._id,
+          name: `${product.name} ${selectedVariant ? `(${selectedVariant.attributes.Color})` : ""}`,
+          price: currentPrice,
+          image:
+            selectedVariant?.image ||
+            product.imageURLs?.[0] ||
+            "/placeholder-image.png",
         }),
       );
     }
@@ -59,30 +77,55 @@ export default function ProductInfo({ product }) {
 
       <div className="flex items-center gap-2">
         <span
-          className={`badge ${product.stock ? "badge-success" : "badge-error"} badge-outline font-semibold`}
+          className={`badge ${!isOutOfStock ? "badge-success" : "badge-error"} badge-outline font-semibold`}
         >
-          {product.stock ? "In Stock" : "Out of Stock"}
+          {!isOutOfStock ? "In Stock" : "Out of Stock"}
         </span>
       </div>
+
+      {product.variantType &&
+        product.variant?.length > 0 &&
+        product.variant[0]?.attributes?.Color && (
+          <div className="space-y-3 pt-2">
+            <p className="font-medium text-sm">Select Color:</p>
+            <div className="flex flex-wrap gap-2">
+              {product.variant.map((v) => (
+                <button
+                  key={v._id}
+                  onClick={() => setSelectedVariant(v)}
+                  className={`border-2 rounded-lg p-1 transition-all ${
+                    selectedVariant?._id === v._id
+                      ? "border-primary bg-primary/5"
+                      : "border-base-300 hover:border-primary/50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 px-2 py-1">
+                    <span className="text-sm font-medium">
+                      {v.attributes?.Color}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
       <div className="bg-base-200/50 p-4 rounded-xl flex items-center gap-4">
         <div>
           <p className="text-sm text-gray-500">Special Price</p>
           <span className="text-3xl font-bold text-primary">
-            ৳{product.salePrice}
+            ৳{currentPrice}
           </span>
         </div>
 
-        {product.productPrice > product.salePrice && (
+        {originalPrice > currentPrice && (
           <div className="flex flex-col">
             <span className="line-through text-gray-400 text-sm">
-              ৳{product.productPrice}
+              ৳{originalPrice}
             </span>
             <span className="text-error text-xs font-bold">
               {Math.round(
-                ((product.productPrice - product.salePrice) /
-                  product.productPrice) *
-                  100,
+                ((originalPrice - currentPrice) / originalPrice) * 100,
               )}
               % OFF
             </span>
@@ -113,21 +156,22 @@ export default function ProductInfo({ product }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
         <Link
-          href={`/checkout?productId=${product._id}&qty=${qty}`}
-          className="btn btn-primary text-white shadow-lg"
+          href={`/checkout?productId=${product._id}&variantId=${selectedVariant?._id || ""}&qty=${qty}`}
+          className={`btn btn-primary text-white shadow-lg ${isOutOfStock ? "btn-disabled" : ""}`}
         >
           অর্ডার করুন
         </Link>
 
         <button
           onClick={handleAddToCart}
+          disabled={isOutOfStock}
           className="btn btn-outline btn-primary"
         >
           কার্টে যোগ করুন
         </button>
 
         <a
-          href={`https://wa.me/880XXXXXXXXXX?text=I want to order ${product.name}. Quantity: ${qty}`}
+          href={`https://wa.me/880XXXXXXXXXX?text=I want to order ${product.name} ${selectedVariant ? `(${selectedVariant.attributes.Color})` : ""}. Quantity: ${qty}`}
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-success text-white col-span-1 sm:col-span-2 mt-2 gap-2"

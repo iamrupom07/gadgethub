@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./cartSlice";
-// Ensure this path matches your project structure
 
 const Card = () => {
   const [products, setProducts] = useState([]);
